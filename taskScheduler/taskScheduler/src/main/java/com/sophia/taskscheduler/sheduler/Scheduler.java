@@ -48,6 +48,22 @@ public interface Scheduler {
         for (String s : daysOfWeek) { dayOfWeeks.add(DayOfWeek.valueOf(s.toUpperCase())); }
         return dayOfWeeks;
     }
+    
+        private static List<DayOfWeek> sortByCurrentDay(List<DayOfWeek> dayOfWeeks) {
+        if (dayOfWeeks.size() < 2) {
+            return dayOfWeeks;
+        }
+        List<DayOfWeek> dayOfWeekList = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            DayOfWeek nextDay = now().getDayOfWeek().plus(i);
+            for (DayOfWeek dayOfWeek : dayOfWeeks) {
+                if (dayOfWeek.equals(nextDay)) {
+                    dayOfWeekList.add(dayOfWeek);
+                }
+            }
+        }
+        return dayOfWeekList;
+    }
 
 }
 
