@@ -42,6 +42,12 @@ public interface Scheduler {
                     frequency.getHour(), frequency.getMinute());
         }
     }
+    
+       static List<DayOfWeek> convertToDayOfWeek(List<String> daysOfWeek) {
+        List<DayOfWeek> dayOfWeeks = new ArrayList<>();
+        for (String s : daysOfWeek) { dayOfWeeks.add(DayOfWeek.valueOf(s.toUpperCase())); }
+        return dayOfWeeks;
+    }
 
 }
 
